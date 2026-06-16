@@ -255,8 +255,8 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
 .adr-decision{background:rgba(63,179,138,.1);border-left:2px solid var(--teal-l);padding:6px 10px;border-radius:0 4px 4px 0;font-size:11px;color:var(--teal-l);font-weight:500}
 
 /* ── SLIDE 12: CTA / DEMO ── */
-.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:100%}
-.cta-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column}
+.cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;height:100%}
+.cta-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;min-height:0}
 .cta-card.dark{background:linear-gradient(135deg,var(--teal-d) 0%,#0a5440 100%);border-color:transparent}
 .cta-card.dark .cta-card-title{color:#fff}
 .cta-card.dark .cta-step{color:rgba(255,255,255,.8)}
@@ -267,6 +267,19 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
 .cta-step-bullet{color:var(--teal-l);font-family:var(--mono);font-weight:700;flex-shrink:0}
 .cta-link-box{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:var(--mono);font-size:11px;color:var(--text);margin-top:auto}
 .cta-link-label{font-size:9px;color:var(--text3);margin-bottom:3px}
+
+/* Demo video styling */
+.demo-wrap{flex:1;display:flex;flex-direction:column;min-height:0;gap:10px}
+.demo-video-frame{flex:1;background:#000;border-radius:10px;overflow:hidden;border:1px solid var(--border);position:relative;min-height:0;display:flex;align-items:center;justify-content:center}
+.demo-video-frame video{max-width:100%;max-height:100%;display:block}
+.demo-video-overlay{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.65);color:#fff;padding:3px 9px;border-radius:20px;font-size:10px;font-family:var(--mono);display:flex;align-items:center;gap:5px;backdrop-filter:blur(8px);z-index:5}
+.demo-rec-dot{width:6px;height:6px;border-radius:50%;background:#f85149;animation:rec-blink 1s infinite}
+@keyframes rec-blink{0%,49%{opacity:1}50%,100%{opacity:.3}}
+.demo-controls{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;flex-shrink:0}
+.demo-btn{background:var(--teal600,#0F6E56);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;font-family:var(--sans);cursor:pointer;font-weight:500;display:flex;align-items:center;gap:4px}
+.demo-btn:hover{filter:brightness(1.15)}
+.demo-btn.secondary{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.demo-info{font-size:10px;color:var(--text3);font-family:var(--mono)}
 
 .kw-strip{margin-top:auto;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .kw-label{font-size:10px;color:var(--text3);font-family:var(--mono);margin-right:4px}
@@ -305,7 +318,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
     <div class="slide active" id="s1">
       <div class="s1-grid">
         <div class="s1-left">
-          <div class="s1-eyebrow">모바일 앱 개발 프로젝트 · 2025</div>
+          <div class="s1-eyebrow">모바일 앱 개발 프로젝트 · 2026</div>
           <div class="s1-title">여행 플래너<br><span>통합 앱</span></div>
           <div class="s1-sub">항공 · 숙소 · 여행지 · 일정을 한 앱에서 관리하고<br>예산 맞춤 검색까지 제공하는 Flutter 기반 서비스</div>
           <div class="s1-chips">
@@ -317,7 +330,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
           <div class="s1-presenter">
             <div class="s1-presenter-label">발표자</div>
             <div class="s1-presenter-name">김건우</div>
-            <div class="s1-presenter-meta">https://kunwoo04184-spec.github.io/2022136009/</div>
+            <div class="s1-presenter-meta">github.com/kunwoo04184-spec/travel-planner-app</div>
           </div>
         </div>
         <div class="s1-right">
@@ -961,60 +974,58 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:var(--sans);backgro
       </div>
     </div>
 
-    <!-- ═══ SLIDE 12: DEMO / CTA / 활용방안 ═══ -->
+    <!-- ═══ SLIDE 12: DEMO VIDEO + 활용방안 ═══ -->
     <div class="slide" id="s12">
       <div class="slide-header-bar">
         <div>
-          <div class="slide-label">Demo & Future · 활용방안 & 마무리</div>
-          <div class="slide-heading">앞으로 어떻게 활용할 것인가</div>
+          <div class="slide-label">Demo · 30초 시연 영상</div>
+          <div class="slide-heading">실제 동작 데모 & 활용 방안</div>
         </div>
+        <div style="font-size:11px;color:var(--text3);font-family:var(--mono)">USE_MOCK=true · Mock 데이터 시연</div>
       </div>
       <div class="slide-body-pad">
         <div class="cta-grid">
-          <div class="cta-card dark">
-            <div class="cta-card-icon">🎬</div>
-            <div class="cta-card-title">30초 시연 시나리오</div>
-            <div class="cta-card-sub">사용자 → 예산 입력 → 결과 확인까지</div>
-            <div class="cta-step">
-              <span class="cta-step-bullet">①</span>
-              <span>홈 화면에서 출발/도착(ICN→NRT), 날짜, 예산 1,000,000원 입력</span>
+          <!-- ── 비디오 영역 ──────────────────────────────────────── -->
+          <div class="demo-wrap">
+            <div class="demo-video-frame">
+              <div class="demo-video-overlay">
+                <span class="demo-rec-dot"></span>
+                <span>LIVE DEMO</span>
+              </div>
+              <video id="demoVideo" controls preload="metadata" playsinline>
+                <source src="demo.mp4" type="video/mp4">
+                브라우저가 video 태그를 지원하지 않습니다.
+              </video>
             </div>
-            <div class="cta-step">
-              <span class="cta-step-bullet">②</span>
-              <span>"예산 맞춤 검색" 버튼 클릭 → Future.wait 병렬 API 호출</span>
-            </div>
-            <div class="cta-step">
-              <span class="cta-step-bullet">③</span>
-              <span>TOP 5 조합 표시: 항공+숙소+현지비용 + 예산 사용률</span>
-            </div>
-            <div class="cta-step">
-              <span class="cta-step-bullet">④</span>
-              <span>탭 전환으로 각 카테고리 상세 확인 가능</span>
-            </div>
-            <div class="cta-link-box">
-              <div class="cta-link-label">LIVE WBS</div>
-              kunwoo04184-spec.github.io/travel-planner-app
+            <div class="demo-controls">
+              <div class="demo-info">demo.mp4 · 5.7 MB · Chrome 브라우저 시연</div>
+              <div style="display:flex;gap:6px">
+                <button class="demo-btn secondary" onclick="restartDemo()">↺ 다시</button>
+                <button class="demo-btn" onclick="toggleDemo()" id="demoToggleBtn">▶ 재생</button>
+              </div>
             </div>
           </div>
+
+          <!-- ── 활용 방안 카드 ───────────────────────────────────── -->
           <div class="cta-card">
             <div class="cta-card-icon">🚀</div>
             <div class="cta-card-title">활용 방안 & 기대 효과</div>
             <div class="cta-card-sub">단순 토이 프로젝트가 아닌 실서비스 지향</div>
             <div class="cta-step">
               <span class="cta-step-bullet">✦</span>
-              <span><strong>여행 준비 시간 70% 단축</strong> — 4개 앱 → 1개 앱</span>
+              <span><strong>여행 준비 시간 70% 단축</strong><br>4개 앱 → 1개 앱</span>
             </div>
             <div class="cta-step">
               <span class="cta-step-bullet">✦</span>
-              <span><strong>예산 초과율 23% → 5% 이내</strong> — 사전 시뮬레이션</span>
+              <span><strong>예산 초과율 23% → 5% 이내</strong><br>사전 시뮬레이션으로 절감</span>
             </div>
             <div class="cta-step">
               <span class="cta-step-bullet">✦</span>
-              <span><strong>국내 대학생 동아리·여행 커뮤니티 베타 배포</strong></span>
+              <span><strong>대학생·여행 커뮤니티 베타 배포</strong><br>국내 사용자 대상 PMF 검증</span>
             </div>
             <div class="cta-step">
               <span class="cta-step-bullet">✦</span>
-              <span><strong>향후 AI 일정 자동 완성으로 확장</strong> — Claude API 연동</span>
+              <span><strong>AI 일정 자동 완성 확장</strong><br>Claude API 연동 예정</span>
             </div>
             <div class="kw-strip">
               <span class="kw-label">KEYWORDS:</span>
@@ -1068,12 +1079,62 @@ function goSlide(n){
   document.getElementById(SLIDES[cur]).classList.add('active');
   document.querySelectorAll('.nav-tab')[cur].classList.add('active');
   document.querySelectorAll('.dot')[cur].classList.add('active');
+  // 슬라이드 12 (데모) 자동 재생, 그 외 슬라이드는 정지
+  const v=document.getElementById('demoVideo');
+  if(v){
+    if(SLIDES[cur]==='s12'){
+      v.currentTime=0;
+      const p=v.play();
+      if(p&&p.catch) p.catch(()=>{}); // 자동재생 정책 무시
+      updateDemoBtn(true);
+    } else {
+      v.pause();
+      updateDemoBtn(false);
+    }
+  }
 }
 function nextSlide(){ goSlide((cur+1)%SLIDES.length) }
 function prevSlide(){ goSlide((cur-1+SLIDES.length)%SLIDES.length) }
 document.addEventListener('keydown',e=>{
+  // 비디오에 포커스가 있을 때 space는 비디오 재생/정지 → 슬라이드 이동 막기
+  const isVideoActive = document.activeElement && document.activeElement.tagName === 'VIDEO';
+  if(isVideoActive && e.key===' ') return;
   if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') nextSlide();
   if(e.key==='ArrowLeft'||e.key==='ArrowUp') prevSlide();
+});
+
+// ── 데모 비디오 컨트롤 ───────────────────────────────────────
+function toggleDemo(){
+  const v=document.getElementById('demoVideo');
+  if(!v) return;
+  if(v.paused){
+    v.play();
+    updateDemoBtn(true);
+  } else {
+    v.pause();
+    updateDemoBtn(false);
+  }
+}
+function restartDemo(){
+  const v=document.getElementById('demoVideo');
+  if(!v) return;
+  v.currentTime=0;
+  v.play();
+  updateDemoBtn(true);
+}
+function updateDemoBtn(playing){
+  const btn=document.getElementById('demoToggleBtn');
+  if(!btn) return;
+  btn.textContent=playing?'⏸ 일시정지':'▶ 재생';
+}
+// 비디오 재생 상태 동기화
+document.addEventListener('DOMContentLoaded',()=>{
+  const v=document.getElementById('demoVideo');
+  if(v){
+    v.addEventListener('play',()=>updateDemoBtn(true));
+    v.addEventListener('pause',()=>updateDemoBtn(false));
+    v.addEventListener('ended',()=>updateDemoBtn(false));
+  }
 });
 
 let timerSec=300, timerRunning=false, timerInterval=null;
